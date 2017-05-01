@@ -1,0 +1,28 @@
+
+Debug.message( "System.cacheDir : " + System.cacheDir );
+Debug.message( "System.externalCacheDir : " + System.externalCacheDir );
+Debug.message( "System.filesDir : " + System.filesDir );
+Debug.message( "System.externalFilesDir : " + System.externalFilesDir );
+Debug.message( "System.obbDir : " + System.obbDir );
+Debug.message( "System.sharedObjectPath : " + System.sharedObjectPath );
+Debug.message( "System.packageName : " + System.packageName );
+Debug.message( "System.packageCodePath : " + System.packageCodePath );
+Debug.message( "System.packageResourcePath : " + System.packageResourcePath );
+Debug.message( "System.dataDirectory : " + System.dataDirectory );
+Debug.message( "System.downloadCacheDirectory : " + System.downloadCacheDirectory );
+Debug.message( "System.externalStorageDirectory : " + System.externalStorageDirectory );
+Debug.message( "System.externalPublicMusicPath : " + System.externalPublicMusicPath );
+Debug.message( "System.externalPublicPodcastsPath : " + System.externalPublicPodcastsPath );
+Debug.message( "System.externalPublicRingtonesPath : " + System.externalPublicRingtonesPath );
+Debug.message( "System.externalPublicAlaramsPath : " + System.externalPublicAlaramsPath );
+Debug.message( "System.externalPublicNotificationsPath : " + System.externalPublicNotificationsPath );
+Debug.message( "System.externalPublicPicturesPath : " + System.externalPublicPicturesPath );
+Debug.message( "System.externalPublicMoviesPath : " + System.externalPublicMoviesPath );
+Debug.message( "System.externalPublicDownloadsPath : " + System.externalPublicDownloadsPath );
+Debug.message( "System.externalPublicDCIMPath : " + System.externalPublicDCIMPath );
+Debug.message( "System.externalPublicDocumentsPath : " + System.externalPublicDocumentsPath );
+Debug.message( "System.rootDirectory : " + System.rootDirectory );
+Debug.message( "System.externalStorageState : " + System.externalStorageState );
+Debug.message( "System.isExternalStorageEmulated : " + System.isExternalStorageEmulated );
+Debug.message( "System.isExternalStorageRemovable : " + System.isExternalStorageRemovable );
+
