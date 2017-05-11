@@ -1,4 +1,8 @@
 
+
+// search in assets.
+Storages.addAutoPath("asset:///");
+
 class MoviePlayerWindow extends Window
 {
 	var video; // VideoOverlay オブジェクト
@@ -6,7 +10,7 @@ class MoviePlayerWindow extends Window
 		super.Window();
 		setInnerSize( width, height );
 		add(video = new VideoOverlay(this));
-		video.open("file:///android_asset/test.mp4");
+		video.open("test.mp4");
 		video.play();
 	}
 	
