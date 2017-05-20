@@ -1,0 +1,36 @@
+
+class SoundPlayerWindow extends Window
+{
+	var base;
+	var child;
+	var sound; // WaveSoundBuffer オブジェクト
+	function SoundPlayerWindow(width,height) {
+		super.Window();
+		setInnerSize( width, height );
+		base = new Layer(this,null);
+		base.setSize( width, height );
+		base.setSizeToImageSize();
+		base.fillRect(0, 0, width, height, 0xff8080ff);
+		add( base );
+
+		child = new Layer(this,base);
+		child.loadImages("bg01.jpg");
+		child.setSizeToImageSize();
+		child.type = ltAlpha;
+		child.visible = true;
+		add( child );
+
+		sound = new WaveSoundBuffer(this);
+		sound.looping = true;
+		//sound.open("test.opus");
+		sound.open("test.wav");
+		sound.play();
+		add(sound);
+	}
+	// function onTouchDown(x, y, cx, cy, id) {}
+}
+
+
+var win = new SoundPlayerWindow(System.desktopWidth,System.desktopHeight);
+win.visible = true;
+
