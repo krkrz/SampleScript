@@ -1,7 +1,7 @@
 
-
+// assetに入れて検索させる場合以下有効に
 // search in assets.
-Storages.addAutoPath("asset:///");
+//Storages.addAutoPath("asset:///");
 
 class MoviePlayerWindow extends Window
 {
