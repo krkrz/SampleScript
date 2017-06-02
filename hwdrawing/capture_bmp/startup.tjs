@@ -1,0 +1,24 @@
+class CanvasWindow extends Window {
+	var tex;
+	var captured;
+	function CanvasWindow(width,height) {
+		super.Window();
+		setInnerSize( width, height );
+		captured = 0;
+		tex = new Texture( "bg01.jpg" );
+	}
+	function onDraw() {
+		canvas.drawTexture( tex, 0, 0 );
+		if( captured == 1 ) {
+			var bmp = new Bitmap();
+			canvas.capture( bmp );
+			bmp.save( "capture_image.png", "png" );
+		}
+		captured++;
+	}
+}
+
+//var win = new CanvasWindow(System.desktopWidth,System.desktopHeight);
+var win = new CanvasWindow(640,480);
+win.visible = true;
+
