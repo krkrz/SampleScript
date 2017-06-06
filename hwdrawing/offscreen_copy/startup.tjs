@@ -1,0 +1,21 @@
+class CanvasWindow extends Window {
+	function CanvasWindow(width,height) {
+		super.Window();
+		setInnerSize( width, height );
+
+		var bmp = new Bitmap( "bg01.jpg" );
+		offscreen = new Offscreen( bmp.width, bmp.height );
+		add( offscreen );
+		offscreen.copyFromBitmap( bmp, 0, 0, bmp.width, bmp.height, 0, 0 );
+		var dest = new Bitmap();
+		offscreen.copyToBitmap( dest );
+		dest.save( "offscreen_image.png", "png" );
+	}
+	function onDraw() {
+	}
+}
+
+//var win = new CanvasWindow(System.desktopWidth,System.desktopHeight);
+var win = new CanvasWindow(640,480);
+win.visible = true;
+
