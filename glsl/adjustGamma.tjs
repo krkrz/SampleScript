@@ -1,0 +1,15 @@
+// gamma.frag 使い方(仮想コード)
+
+// ガンマ補正シェーダー
+var gammaShader = new ShaderProgram( "default.vert", "gamma.frag" );
+
+// 以下のようにして設定する
+function adjustGamma( gammaShader, rgamma, rfloor, rceil, ggamma, gfloor, gceil, bgamma, bfloor, bceil ) {
+	gammaShader.a_floor = [rfloor/255.0,gfloor/255.0,bfloor/255.0]; // floor ( 0.0 to 1.0 )
+	gammaShader.a_gamma = [1.0/rgamma,1.0/ggamma,1.0/bgamma]; // 1 / (0.0 to 1.0 to 9.0)
+	gammaShader.a_amp = [(rceil-rfloor)/255.0,(gceil-gfloor)/255.0,(bceil-bfloor)/255.0];	// ceil - floor
+}
+
+// シェーダーを指定して描画
+canvas.drawTexture( texture, gammaShader );
+

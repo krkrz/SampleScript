@@ -16,6 +16,12 @@ OpenGL ES2.0 で動くように GLSL ES1.0。
 通常描画用フラグメントシェーダー、組み込みのデフォルトと同じなので使う機会はない。
 * default.vert  
 デフォルトバーテックスシェーダー、組み込みのデフォルトと同じだが、他のフラグメントシェーダーと組み合わせて使う。
+* gamma.frag  
+ガンマ補正フラグメントシェーダー。
+* grayscale.frag  
+グレースケール変換フラグメントシェーダー。
+* negative_positive_reversal.frag  
+ネガポジ反転フラグメントシェーダー。
 * universal.frag  
 ユニバーサルトランジション用フラグメントシェーダー、背景不透明用。
 * universal_a.frag    
