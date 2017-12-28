@@ -1,4 +1,8 @@
 /*------------------ viewer ------------------*/
+with(Plugins)
+{
+	.link("menu.dll");
+}
 class MyWindow extends Window
 {
 	var primlayer;
@@ -10,10 +14,10 @@ class MyWindow extends Window
 	function MyWindow()
 	{
 		super.Window();
-		menu.add(filemenu = new MenuItem(this, "ƒtƒ@ƒCƒ‹(&F)"));
-		filemenu.add(exitmenu = new MenuItem(this, "I—¹(&X)"));
+		menu.add(filemenu = new MenuItem(this, "ãƒ•ã‚¡ã‚¤ãƒ«(&F)"));
+		filemenu.add(exitmenu = new MenuItem(this, "çµ‚äº†(&X)"));
 
-		// ‰º•~‚«(ƒvƒ‰ƒCƒ}ƒŠƒŒƒCƒ„)
+		// ä¸‹æ•·ã(ãƒ—ãƒ©ã‚¤ãƒãƒªãƒ¬ã‚¤ãƒ¤)
 		add(primlayer = new Layer(this, null));
 		primlayer.left = primlayer.top = 0;
 		primlayer.imageWidth = 400;
@@ -21,7 +25,7 @@ class MyWindow extends Window
 		primlayer.setSizeToImageSize();
 		setInnerSize(primlayer.width, primlayer.height);
 
-		// ‰æ‘œ
+		// ç”»åƒ
 		add(graphlayer = new Layer(this, primlayer));
 		graphlayer.width = primlayer.width;
 		graphlayer.height = primlayer.height;
@@ -29,12 +33,12 @@ class MyWindow extends Window
 		graphlayer.visible = true;
 		graphlayer.font.height = 18;
 //		graphlayer.face = dfMain;
-		graphlayer.drawText(10, 10, "Explorer “™‚©‚ç•\¦‚³‚¹‚½‚¢‰æ‘œ‚ğ",
+		graphlayer.drawText(10, 10, "Explorer ç­‰ã‹ã‚‰è¡¨ç¤ºã•ã›ãŸã„ç”»åƒã‚’",
 			0xff0000, 255, true, 200, 0x000000, 3, 2, 2);
-		graphlayer.drawText(10, 30, "‚±‚±‚Éƒhƒƒbƒv‚µ‚Ä‚­‚¾‚³‚¢",
+		graphlayer.drawText(10, 30, "ã“ã“ã«ãƒ‰ãƒ­ãƒƒãƒ—ã—ã¦ãã ã•ã„",
 			0xff0000, 255, true, 200, 0x000000, 3, 2, 2);
 
-		// s¼–Í—l•Û‘¶êŠ
+		// å¸‚æ¾æ¨¡æ§˜ä¿å­˜å ´æ‰€
 		add(checkers = new Layer(this, primlayer));
 		checkers.type = ltCoverRect;
 		checkers.face = dfMain;
@@ -51,7 +55,7 @@ class MyWindow extends Window
 
 	function loadImage(file)
 	{
-		// ‰æ‘œ“Ç‚İ‚İ
+		// ç”»åƒèª­ã¿è¾¼ã¿
 		try
 		{
 			var start = System.getTickCount();
@@ -75,12 +79,12 @@ class MyWindow extends Window
 		}
 		catch(e)
 		{
-			System.inform("‰æ‘œ‚ğ“Ç‚İ‚Ş‚±‚Æ‚ª‚Å‚«‚Ü‚¹‚ñ : " + e.message);
+			System.inform("ç”»åƒã‚’èª­ã¿è¾¼ã‚€ã“ã¨ãŒã§ãã¾ã›ã‚“ : " + e.message);
 		}
 		graphlayer.setSizeToImageSize();
 		setInnerSize(graphlayer.width, graphlayer.height);
 
-		// s¼–Í—l•`‰æ
+		// å¸‚æ¾æ¨¡æ§˜æç”»
 		primlayer.setImageSize(graphlayer.imageWidth, graphlayer.imageHeight);
 		primlayer.setSizeToImageSize();
 		for(var y = 0; y<primlayer.height; y += 320)

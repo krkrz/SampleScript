@@ -1,5 +1,5 @@
 /*
-	’´ŠÈˆÕƒ€[ƒr[ƒvƒŒ[ƒ„‚ÌƒRƒ“ƒgƒ[ƒ‹—pƒŒƒCƒ„
+	è¶…ç°¡æ˜“ãƒ ãƒ¼ãƒ“ãƒ¼ãƒ—ãƒ¬ãƒ¼ãƒ¤ã®ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ç”¨ãƒ¬ã‚¤ãƒ¤
 */
 
 class ControlLayer extends Layer
@@ -16,13 +16,13 @@ class ControlLayer extends Layer
 	{
 		super.Layer(win, par);
 
-		// ƒvƒƒpƒeƒB‚ğİ’è
+		// ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’è¨­å®š
 		setImageSize(400, 20);
 		setSizeToImageSize();
-		name = "ƒRƒ“ƒgƒ[ƒ‹—pƒŒƒCƒ„";
+		name = "ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ç”¨ãƒ¬ã‚¤ãƒ¤";
 		visible = true;
 
-		// Šeƒ{ƒ^ƒ“‚È‚Ç‚ğì¬
+		// å„ãƒœã‚¿ãƒ³ãªã©ã‚’ä½œæˆ
 		var l = 4;
 		const spacing = 4;
 
@@ -32,7 +32,7 @@ class ControlLayer extends Layer
 			.height = 16;
 			.left = l;
 			.top = 2;
-			.caption = .name = "ŠJ";
+			.caption = .name = "é–‹";
 			.onClickHandler = window.openFile;
 			.visible = true;
 			l += .width + spacing;
@@ -45,7 +45,7 @@ class ControlLayer extends Layer
 			.height = 16;
 			.left = l;
 			.top = 2;
-			.caption = .name = "Ä";
+			.caption = .name = "å†";
 			.onClickHandler = window.play;
 			.visible = true;
 			l += .width + spacing;
@@ -57,7 +57,7 @@ class ControlLayer extends Layer
 			.height = 16;
 			.left = l;
 			.top = 2;
-			.caption = .name = "’â";
+			.caption = .name = "åœ";
 			.onClickHandler = window.pause;
 			.visible = true;
 			l += .width + spacing;
@@ -69,7 +69,7 @@ class ControlLayer extends Layer
 			.height = 16;
 			.left = l;
 			.top = 2;
-			.caption = .name = "~";
+			.caption = .name = "æ­¢";
 			.onClickHandler = window.stop;
 			.visible = true;
 			l += .width + spacing;
@@ -86,11 +86,11 @@ class ControlLayer extends Layer
 		}
 
 
-		// ƒ^ƒCƒ}‚ğì¬
+		// ã‚¿ã‚¤ãƒã‚’ä½œæˆ
 		timer = new Timer(onTimer, '');
 		timer.interval = 100;
 
-		// ƒXƒe[ƒ^ƒX‚ğXV
+		// ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã‚’æ›´æ–°
 		displayStatus();
 	}
 
@@ -107,7 +107,7 @@ class ControlLayer extends Layer
 
 	function displayStatus()
 	{
-		// ƒXƒe[ƒ^ƒX‚ğ•\¦‚·‚é
+		// ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã‚’è¡¨ç¤ºã™ã‚‹
 		var st_x = 130;
 		var st_y = 4;
 
@@ -116,10 +116,10 @@ class ControlLayer extends Layer
 		var text;
 		switch(window.videoStatus)
 		{
-		case 'unload':		text = 'ƒ€[ƒr[‚ğŠJ‚¢‚Ä‚­‚¾‚³‚¢';	break;
-		case 'play':		text = 'Ä¶’†';					break;
-		case 'stop':		text = '’â~’†';					break;
-		case 'pause':		text = 'ˆê’â~’†';				break;
+		case 'unload':		text = 'ãƒ ãƒ¼ãƒ“ãƒ¼ã‚’é–‹ã„ã¦ãã ã•ã„';	break;
+		case 'play':		text = 'å†ç”Ÿä¸­';					break;
+		case 'stop':		text = 'åœæ­¢ä¸­';					break;
+		case 'pause':		text = 'ä¸€æ™‚åœæ­¢ä¸­';				break;
 		}
 
 		slider.visible = window.videoStatus != 'unload';

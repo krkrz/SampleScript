@@ -1,22 +1,22 @@
-// SliderLayer.tjs - ƒXƒ‰ƒCƒ_[ƒŒƒCƒ„
-// Copyright (C)2001-2003, W.Dee  ‰ü•ÏE”z•z‚Í©—R‚Å‚·
+// SliderLayer.tjs - ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼ãƒ¬ã‚¤ãƒ¤
+// Copyright (C)2001-2003, W.Dee  æ”¹å¤‰ãƒ»é…å¸ƒã¯è‡ªç”±ã§ã™
 
 class SliderLayer extends Layer
 {
-	var Slider_min = 0; // Å¬’l
-	var Slider_max = 0; // Å‘å’l
-	var Slider_position = 0; // ˆÊ’u
-	var Slider_tabWidth = 10; // ‚Â‚Ü‚İƒTƒCƒY
-	var Slider_dragging = false; // ƒhƒ‰ƒbƒO’†‚©‚Ç‚¤‚©
-	var Slider_dragOriginX; // ƒhƒ‰ƒbƒOŠJn X ˆÊ’u
-	var Slider_mouseOn = false; // ƒ}ƒEƒX‚ª—Ìˆæ“à‚É‚ ‚é‚©‚Ç‚¤‚©
-	var Slider_onChangeHandler = null; // ˆÊ’u‚ª•ÏX‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚éƒnƒ“ƒhƒ‰
+	var Slider_min = 0; // æœ€å°å€¤
+	var Slider_max = 0; // æœ€å¤§å€¤
+	var Slider_position = 0; // ä½ç½®
+	var Slider_tabWidth = 10; // ã¤ã¾ã¿ã‚µã‚¤ã‚º
+	var Slider_dragging = false; // ãƒ‰ãƒ©ãƒƒã‚°ä¸­ã‹ã©ã†ã‹
+	var Slider_dragOriginX; // ãƒ‰ãƒ©ãƒƒã‚°é–‹å§‹ X ä½ç½®
+	var Slider_mouseOn = false; // ãƒã‚¦ã‚¹ãŒé ˜åŸŸå†…ã«ã‚ã‚‹ã‹ã©ã†ã‹
+	var Slider_onChangeHandler = null; // ä½ç½®ãŒå¤‰æ›´ã•ã‚ŒãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ãƒãƒ³ãƒ‰ãƒ©
 
 	function SliderLayer(win, par)
 	{
 		super.Layer(win, par);
 
-		focusable = true; // ƒtƒH[ƒJƒX‚ğ“¾‚ç‚ê‚é
+		focusable = true; // ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’å¾—ã‚‰ã‚Œã‚‹
 
 		hitType = htMask;
 		hitThreshold = 0;
@@ -29,7 +29,7 @@ class SliderLayer extends Layer
 
 	function assign(src)
 	{
-		// src ‚Ìî•ñ‚ğ‚±‚ÌƒIƒuƒWƒFƒNƒg‚ÉƒRƒs[
+		// src ã®æƒ…å ±ã‚’ã“ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«ã‚³ãƒ”ãƒ¼
 		Slider_min = src.Slider_min;
 		Slider_max = src.Slider_max;
 		Slider_position = src.Slider_position;
@@ -37,28 +37,28 @@ class SliderLayer extends Layer
 
 	function onPaint()
 	{
-		// onPaint ƒCƒxƒ“ƒg
-		// ƒŒƒCƒ„‚Ì“à—e‚ğ•`‰æ‚·‚é
+		// onPaint ã‚¤ãƒ™ãƒ³ãƒˆ
+		// ãƒ¬ã‚¤ãƒ¤ã®å†…å®¹ã‚’æç”»ã™ã‚‹
 		super.onPaint(...);
 
-		// ‚æ‚­g‚¤’l‚ğƒ[ƒJƒ‹•Ï”‚É—pˆÓ‚·‚é
+		// ã‚ˆãä½¿ã†å€¤ã‚’ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°ã«ç”¨æ„ã™ã‚‹
 		var imw = imageWidth, imh = imageHeight;
 		var tabw = Slider_tabWidth;
 		var htabw = tabw >> 1;
 
-		// ‰º•~‚«‚ğ“h‚é
+		// ä¸‹æ•·ãã‚’å¡—ã‚‹
 		fillRect(0, 0, imw, imh, 0);
 
 		if(focused)
 		{
-			// ƒtƒH[ƒJƒX‚ª‚ ‚é‚Ì‚ÅƒnƒCƒ‰ƒCƒg‚·‚é
+			// ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ãŒã‚ã‚‹ã®ã§ãƒã‚¤ãƒ©ã‚¤ãƒˆã™ã‚‹
 			colorRect(0, 0, width-1, 1, clHighlight, 128);
 			colorRect(0, 1, 1, height-2, clHighlight, 128);
 			colorRect(0, height-1, width, 1, clHighlight, 128);
 			colorRect(width-1, 0, 1, height-1, clHighlight, 128);
 		}
 
-		// ’†‰›‚Ì‚Ö‚±‚İü
+		// ä¸­å¤®ã®ã¸ã“ã¿ç·š
 		{
 			var himh = imh >> 1;
 			var right = imw - tabw;
@@ -66,7 +66,7 @@ class SliderLayer extends Layer
 			fillRect(htabw, himh    , right, 1, 0x80ffffff);
 		}
 
-		// ƒ^ƒu
+		// ã‚¿ãƒ–
 		var pos_x = int(
 			(Slider_position-Slider_min) * (imw - tabw - 2)/(Slider_max - Slider_min)) +
 			htabw + 1;
@@ -85,26 +85,26 @@ class SliderLayer extends Layer
 
 	function onKeyDown(key, shift, process)
 	{
-		// ƒL[‚ª‰Ÿ‚³‚ê‚½
+		// ã‚­ãƒ¼ãŒæŠ¼ã•ã‚ŒãŸ
 		if(process)
 		{
 			if(key == VK_LEFT)
 			{
-				// ¶
+				// å·¦
 				if(shift & ssAlt)
 					position = Slider_position - 1;
 				else
 					position = Slider_position - int((Slider_max - Slider_min)/ (Slider_tabWidth-2) / 2);
-				super.onKeyDown(key, shift, false); // ˆ—‚ğ‚µ‚½‚Ì‚Åprocess‚Éfalse‚ğ“n‚·
+				super.onKeyDown(key, shift, false); // å‡¦ç†ã‚’ã—ãŸã®ã§processã«falseã‚’æ¸¡ã™
 			}
 			else if(key == VK_RIGHT)
 			{
-				// ¶
+				// å·¦
 				if(shift & ssAlt)
 					position = Slider_position + 1;
 				else
 					position = Slider_position + int((Slider_max - Slider_min)/ (Slider_tabWidth-2) / 2);
-				super.onKeyDown(key, shift, false); // ˆ—‚ğ‚µ‚½‚Ì‚Åprocess‚Éfalse‚ğ“n‚·
+				super.onKeyDown(key, shift, false); // å‡¦ç†ã‚’ã—ãŸã®ã§processã«falseã‚’æ¸¡ã™
 			}
 			else
 			{
@@ -113,14 +113,14 @@ class SliderLayer extends Layer
 		}
 		else
 		{
-			// process ‚ª false ‚Ìê‡‚Íˆ—‚Ís‚í‚È‚¢
+			// process ãŒ false ã®å ´åˆã¯å‡¦ç†ã¯è¡Œã‚ãªã„
 			super.onKeyDown(...);
 		}
 	}
 
 	function onMouseDown(x, y, button)
 	{
-		// ƒ}ƒEƒXƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½
+		// ãƒã‚¦ã‚¹ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚ŒãŸ
 		focus();
 
 		super.onMouseDown(...);
@@ -132,18 +132,18 @@ class SliderLayer extends Layer
 			htabw + 1;
 		if(pos_x - htabw > x)
 		{
-			// ƒ^ƒu‚æ‚è¶
+			// ã‚¿ãƒ–ã‚ˆã‚Šå·¦
 			position = Slider_position - int((Slider_max - Slider_min)/ (tabw-2));
 		}
 		else if(pos_x + htabw < x)
 		{
-			// ƒ^ƒu‚æ‚è‰E
+			// ã‚¿ãƒ–ã‚ˆã‚Šå³
 			position = Slider_position + int((Slider_max - Slider_min)/ (tabw-2));
 		}
 		else
 		{
-			// ƒ^ƒu
-			// ƒ^ƒu‚Ìƒhƒ‰ƒbƒO‚ğŠJn
+			// ã‚¿ãƒ–
+			// ã‚¿ãƒ–ã®ãƒ‰ãƒ©ãƒƒã‚°ã‚’é–‹å§‹
 			Slider_dragging = true;
 			Slider_dragOriginX = x - pos_x;
 		}
@@ -151,7 +151,7 @@ class SliderLayer extends Layer
 
 	function onMouseUp(x, y, button)
 	{
-		// ƒ}ƒEƒXƒ{ƒ^ƒ“‚ª—£‚³‚ê‚½
+		// ãƒã‚¦ã‚¹ãƒœã‚¿ãƒ³ãŒé›¢ã•ã‚ŒãŸ
 		super.onMouseUp(...);
 
 		Slider_dragging = false;
@@ -159,12 +159,12 @@ class SliderLayer extends Layer
 
 	function onMouseMove(x, y)
 	{
-		// ƒ}ƒEƒX‚ªˆÚ“®‚µ‚½
+		// ãƒã‚¦ã‚¹ãŒç§»å‹•ã—ãŸ
 		super.onMouseMove(...);
 
 		if(Slider_dragging)
 		{
-			// ƒ^ƒu‚ğƒhƒ‰ƒbƒO
+			// ã‚¿ãƒ–ã‚’ãƒ‰ãƒ©ãƒƒã‚°
 			position = int(
 				(x - Slider_dragOriginX - (Slider_tabWidth >> 1)) * (Slider_max - Slider_min) /
 				(imageWidth - Slider_tabWidth - 2) + Slider_min);
@@ -173,7 +173,7 @@ class SliderLayer extends Layer
 
 	function onMouseEnter()
 	{
-		// ƒ}ƒEƒX‚ªƒŒƒCƒ„—Ìˆæ“à‚É“ü‚Á‚½
+		// ãƒã‚¦ã‚¹ãŒãƒ¬ã‚¤ãƒ¤é ˜åŸŸå†…ã«å…¥ã£ãŸ
 		update();
 		Slider_mouseOn = true;
 		super.onMouseEnter(...);
@@ -181,7 +181,7 @@ class SliderLayer extends Layer
 
 	function onMouseLeave()
 	{
-		// ƒ}ƒEƒX‚ªƒŒƒCƒ„—Ìˆæ‚©‚ço‚Ä‚¢‚Á‚½
+		// ãƒã‚¦ã‚¹ãŒãƒ¬ã‚¤ãƒ¤é ˜åŸŸã‹ã‚‰å‡ºã¦ã„ã£ãŸ
 		update();
 		Slider_mouseOn = false;
 		Slider_dragging = false;
@@ -190,28 +190,28 @@ class SliderLayer extends Layer
 
 	function onFocus()
 	{
-		// ƒtƒH[ƒJƒX‚ğ“¾‚½
+		// ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’å¾—ãŸ
 		super.onFocus(...);
 		update();
 	}
 
 	function onBlur()
 	{
-		// ƒtƒH[ƒJƒX‚ğ¸‚Á‚½
+		// ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’å¤±ã£ãŸ
 		super.onBlur(...);
 		update();
 	}
 
 	function onNodeDisabled()
 	{
-		// ƒŒƒCƒ„‚Ìƒm[ƒh‚ª•s‰Â‚É‚È‚Á‚½
+		// ãƒ¬ã‚¤ãƒ¤ã®ãƒãƒ¼ãƒ‰ãŒä¸å¯ã«ãªã£ãŸ
 		super.onNodeDisabled(...);
 		update();
 	}
 
 	function onNodeEnabled()
 	{
-		// ƒŒƒCƒ„‚Ìƒm[ƒh‚ª—LŒø‚É‚È‚Á‚½
+		// ãƒ¬ã‚¤ãƒ¤ã®ãƒãƒ¼ãƒ‰ãŒæœ‰åŠ¹ã«ãªã£ãŸ
 		super.onNodeEnabled(...);
 		update();
 	}
@@ -289,7 +289,7 @@ class SliderLayer extends Layer
 
 	function setPos(x)
 	{
-		// Œ»İˆÊ’u‚ğİ’è‚·‚é‚ªƒCƒxƒ“ƒg‚Í”­¶‚³‚¹‚È‚¢
+		// ç¾åœ¨ä½ç½®ã‚’è¨­å®šã™ã‚‹ãŒã‚¤ãƒ™ãƒ³ãƒˆã¯ç™ºç”Ÿã•ã›ãªã„
 		if(x < Slider_min) x = Slider_min;
 		if(x > Slider_max) x = Slider_max;
 		Slider_position = x;

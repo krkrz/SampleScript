@@ -1,7 +1,12 @@
 /*
-	簡易ムービープレーヤ
+	邁｡譏薙Β繝ｼ繝薙�ｼ繝励Ξ繝ｼ繝､
 */
 
+with(Plugins)
+{
+	.link("menu.dll");
+	.link("krdstheora.dll");
+}
 Scripts.execStorage("CommandMenuItem.tjs");
 Scripts.execStorage("SliderLayer.tjs");
 Scripts.execStorage("ButtonLayer.tjs");
